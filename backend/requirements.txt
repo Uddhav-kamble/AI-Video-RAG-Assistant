@@ -26,3 +26,4 @@ langchain-huggingface>=0.1.0
 sentence-transformers>=3.0.0
 huggingface-hub>=0.24.0
 tiktoken>=0.7.0
+gunicorn>=23.0.0

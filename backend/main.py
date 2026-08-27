@@ -25,7 +25,9 @@ def run_pipeline(source :str, language :str = "english") -> dict:
     decisions = extract_key_decisions(transcript)
     questions = extract_questions(transcript)
     
-    rag_chain = build_rag_chain(transcript)
+    import uuid
+    session_id = f"session_{uuid.uuid4().hex[:8]}"
+    rag_chain = build_rag_chain(transcript, session_id=session_id)
 
     return {
         "title": title,

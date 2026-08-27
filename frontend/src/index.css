@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+/* ── Custom Theme (Tailwind v4 CSS-based config) ── */
+@theme {
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Syne', 'Inter', sans-serif;
+
+  --color-bg: #06080f;
+  --color-bg-secondary: #0c0f1a;
+  --color-surface: rgba(14, 17, 30, 0.7);
+  --color-glass: rgba(14, 17, 30, 0.55);
+
+  --color-border-subtle: rgba(124, 58, 237, 0.12);
+  --color-border-default: rgba(124, 58, 237, 0.2);
+  --color-border-accent: rgba(124, 58, 237, 0.4);
+
+  --color-purple: #7c3aed;
+  --color-purple-light: #a78bfa;
+  --color-violet: #8b5cf6;
+  --color-cyan: #06d6a0;
+  --color-cyan-light: #34d399;
+  --color-blue: #3b82f6;
+  --color-amber: #fbbf24;
+
+  --color-text-primary: #f0f0f8;
+  --color-text-secondary: #a0a0c0;
+  --color-text-muted: #6b6b90;
+
+  --animate-fade-in-up: fade-in-up 0.6s ease both;
+  --animate-fade-in: fade-in 0.5s ease both;
+  --animate-float: float 4s ease-in-out infinite;
+  --animate-spin-slow: spin 1s linear infinite;
+  --animate-pulse-soft: pulse-soft 1.5s infinite;
+  --animate-shimmer: shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ── Base Styles ── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--color-purple-light);
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+a:hover {
+  color: var(--color-cyan);
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(124, 58, 237, 0.3); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(124, 58, 237, 0.5); }
+
+/* ── Gradient text utility ── */
+.gradient-text {
+  background: linear-gradient(135deg, #7c3aed 0%, #3b82f6 50%, #06d6a0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Glass card base ── */
+.glass-card {
+  background: var(--color-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 16px;
+  transition: border-color 250ms ease, box-shadow 250ms ease, transform 250ms ease;
+}
+
+.glass-card:hover {
+  border-color: var(--color-border-accent);
+  box-shadow: 0 0 40px rgba(124, 58, 237, 0.15);
+  transform: translateY(-2px);
+}
+
+/* ── Markdown prose styling ── */
+.prose-result p { margin-bottom: 0.5rem; }
+.prose-result ul, .prose-result ol { padding-left: 1.25rem; }
+.prose-result li { margin-bottom: 0.35rem; }
